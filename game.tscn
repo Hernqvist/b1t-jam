@@ -9,7 +9,7 @@ script = ExtResource("1_feb5d")
 [node name="BloodSystem" parent="." instance=ExtResource("2_e2o6t")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(16, 16)
+zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,23 +1,27 @@
-[gd_scene load_steps=6 format=4 uid="uid://bif80y6577k0w"]
+[gd_scene load_steps=9 format=4 uid="uid://bif80y6577k0w"]
 
-[ext_resource type="Texture2D" uid="uid://bympvtrvtnu4p" path="res://test_texture.tres" id="1_ghsa0"]
+[ext_resource type="PackedScene" uid="uid://bpsj2gv24ttfp" path="res://tilescenes/wall.tscn" id="1_vds0x"]
+[ext_resource type="PackedScene" uid="uid://27kokkx80bxt" path="res://tilescenes/empty.tscn" id="2_uj7xl"]
 [ext_resource type="Script" uid="uid://breitwjxbvwr7" path="res://blood_system.gd" id="2_vds0x"]
+[ext_resource type="PackedScene" uid="uid://mftq7gck7dhc" path="res://tilescenes/blood.tscn" id="3_rbjie"]
 [ext_resource type="PackedScene" uid="uid://cui33iic7ke2v" path="res://hover_marker.tscn" id="3_uj7xl"]
+[ext_resource type="PackedScene" uid="uid://35ewei4woyrf" path="res://tilescenes/virus.tscn" id="4_rbjie"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc0e3"]
-texture = ExtResource("1_ghsa0")
-texture_region_size = Vector2i(1, 1)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dlqe8"]
+scenes/1/scene = ExtResource("2_uj7xl")
+scenes/2/scene = ExtResource("1_vds0x")
+scenes/3/scene = ExtResource("3_rbjie")
+scenes/4/scene = ExtResource("4_rbjie")
 
 [sub_resource type="TileSet" id="TileSet_7jktm"]
-tile_size = Vector2i(1, 1)
-sources/0 = SubResource("TileSetAtlasSource_fc0e3")
+tile_size = Vector2i(8, 8)
+sources/2 = SubResource("TileSetScenesCollectionSource_dlqe8")
 
 [node name="BloodSystem" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAEAAMAAAABAAAAAAAEAAEAAAABAAAAAAAFAAEAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAAIAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAJAAQAAAABAAAAAAAJAAUAAAABAAAAAAAIAAUAAAABAAAAAAAHAAUAAAABAAAAAAAGAAUAAAABAAAAAAAFAAUAAAABAAAAAAAFAAQAAAABAAAAAAAEAAUAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAwABAAAAAgAAAAAAAgACAAAAAgAAAAAAAgADAAAAAgAAAAAAAgAEAAAAAgAAAAAAAgAEAAEAAgAAAAAAAgAEAAIAAgAAAAAAAgAEAAMAAgAAAAAAAgAEAAQAAgAAAAAAAgAFAAQAAgAAAAAAAgAGAAQAAgAAAAAAAgAHAAQAAgAAAAAAAgAIAAQAAgAAAAAAAgACAAMAAgAAAAAAAwABAAUAAgAAAAAABAA=")
 tile_set = SubResource("TileSet_7jktm")
 script = ExtResource("2_vds0x")
 
 [node name="HoverMarker" parent="." instance=ExtResource("3_uj7xl")]
+
+[node name="Entities" type="Node2D" parent="."]

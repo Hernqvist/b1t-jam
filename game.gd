@@ -4,6 +4,7 @@ class_name Game
 @onready var score_label : Label = %ScoreLabel
 @onready var next_button : Button = %NextButton
 @onready var system : BloodSystem = $BloodSystem
+@onready var camera : Camera2D = $Camera2D
 
 var score : int = 0
 
@@ -13,3 +14,7 @@ var state : State = State.PLAYING
 func _process(_delta: float) -> void:
 	score_label.text = "Health score: %d" % score
 	next_button.disabled = state != State.PLAYING
+
+func _ready() -> void:
+	camera.position = Vector2(system.WIDTH / 2.0, system.HEIGHT / 2.0) * system.TILE_SCALE
+	system.add_viruses(3)

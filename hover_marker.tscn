@@ -9,6 +9,7 @@ script = ExtResource("1_ctaka")
 
 [node name="Cross" type="Line2D" parent="."]
 material = SubResource("CanvasItemMaterial_d62l3")
+scale = Vector2(4, 4)
 points = PackedVector2Array(-1, -1, 1, 1, 0, 0, 1, -1, -1, 1)
 width = 0.5
 

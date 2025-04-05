@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://mftq7gck7dhc"]
+
+[ext_resource type="Texture2D" uid="uid://cva62lvfb4d8q" path="res://textures/blood.png" id="1_8legh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wucyh"]
+atlas = ExtResource("1_8legh")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krlvk"]
+atlas = ExtResource("1_8legh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ax7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wucyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krlvk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Blood" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ax7g")
+autoplay = "default"

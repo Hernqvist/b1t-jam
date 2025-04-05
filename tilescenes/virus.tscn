@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://35ewei4woyrf"]
+
+[ext_resource type="Script" uid="uid://dlll051o44b3t" path="res://tilescenes/virus.gd" id="1_8eemj"]
+[ext_resource type="Texture2D" uid="uid://chhcbqac1fxku" path="res://textures/virus.png" id="2_6wr2v"]
+
+[node name="Virus" type="Node2D"]
+script = ExtResource("1_8eemj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6wr2v")
