@@ -18,6 +18,7 @@ const DIRECTIONS : Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT,
 @onready var marker : HoverMarker = $HoverMarker
 @onready var entities : Node2D = $Entities
 @onready var heart : Heart = %Heart
+@onready var destroy_tile_sound : AudioStreamPlayer = $DestroyTileSound
 
 var protected : Dictionary[Vector2i, Object] = {}
 
@@ -105,3 +106,4 @@ func _process(_delta: float) -> void:
 			if actions_left > 0 and is_removable(gc(mouse_tile())):
 				actions_left -= 1
 				sc(mouse_tile(), Tile.EMPTY)
+				destroy_tile_sound.play()
