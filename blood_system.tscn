@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bif80y6577k0w"]
+[gd_scene load_steps=13 format=4 uid="uid://bif80y6577k0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpsj2gv24ttfp" path="res://tilescenes/wall.tscn" id="1_vds0x"]
 [ext_resource type="PackedScene" uid="uid://27kokkx80bxt" path="res://tilescenes/empty.tscn" id="2_uj7xl"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cui33iic7ke2v" path="res://hover_marker.tscn" id="3_uj7xl"]
 [ext_resource type="PackedScene" uid="uid://35ewei4woyrf" path="res://tilescenes/virus.tscn" id="4_rbjie"]
 [ext_resource type="PackedScene" uid="uid://bkqoqo1oadxgg" path="res://entities/heart.tscn" id="7_dlqe8"]
-[ext_resource type="PackedScene" uid="uid://qvomw0vieo1b" path="res://entities/lungs.tscn" id="8_25jlq"]
+[ext_resource type="PackedScene" path="res://entities/lungs.tscn" id="8_25jlq"]
 [ext_resource type="AudioStream" uid="uid://dbsvseglp8g4w" path="res://audio/destroy.wav" id="9_ichj8"]
+[ext_resource type="AudioStream" uid="uid://cpvhor1i1qcm6" path="res://audio/blood_flow.wav" id="10_gss0t"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dlqe8"]
 scenes/1/scene = ExtResource("2_uj7xl")
@@ -47,3 +48,7 @@ position = Vector2(64, 56)
 
 [node name="DestroyTileSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_ichj8")
+
+[node name="ExpandBloodSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gss0t")
+volume_db = 2.07

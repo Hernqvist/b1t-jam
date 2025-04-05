@@ -19,6 +19,7 @@ const DIRECTIONS : Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT,
 @onready var entities : Node2D = $Entities
 @onready var heart : Heart = %Heart
 @onready var destroy_tile_sound : AudioStreamPlayer = $DestroyTileSound
+@onready var expand_blood_sound : AudioStreamPlayer = $ExpandBloodSound
 
 var protected : Dictionary[Vector2i, Object] = {}
 
@@ -57,6 +58,7 @@ func begin_adding_blood(from : Vector2i) -> void:
 	clear_blood()
 	sc(from, Tile.BLOOD)
 	heart.start_beating()
+	expand_blood_sound.play()
 
 func to_tile(global : Vector2) -> Vector2i:
 	return Vector2i((global - global_position) / TILE_SCALE)
