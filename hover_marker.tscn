@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cui33iic7ke2v"]
+
+[ext_resource type="Script" uid="uid://d3o2fc6kvfkgt" path="res://hover_marker.gd" id="1_ctaka"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d62l3"]
+
+[node name="HoverMarker" type="Node2D"]
+script = ExtResource("1_ctaka")
+
+[node name="Cross" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_d62l3")
+points = PackedVector2Array(-1, -1, 1, 1, 0, 0, 1, -1, -1, 1)
+width = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

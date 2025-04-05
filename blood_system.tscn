@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=4 uid="uid://bif80y6577k0w"]
+
+[ext_resource type="Texture2D" uid="uid://bympvtrvtnu4p" path="res://test_texture.tres" id="1_ghsa0"]
+[ext_resource type="Script" uid="uid://breitwjxbvwr7" path="res://blood_system.gd" id="2_vds0x"]
+[ext_resource type="PackedScene" uid="uid://cui33iic7ke2v" path="res://hover_marker.tscn" id="3_uj7xl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc0e3"]
+texture = ExtResource("1_ghsa0")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7jktm"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_fc0e3")
+
+[node name="BloodSystem" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAEAAMAAAABAAAAAAAEAAEAAAABAAAAAAAFAAEAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAAIAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAJAAQAAAABAAAAAAAJAAUAAAABAAAAAAAIAAUAAAABAAAAAAAHAAUAAAABAAAAAAAGAAUAAAABAAAAAAAFAAUAAAABAAAAAAAFAAQAAAABAAAAAAAEAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_7jktm")
+script = ExtResource("2_vds0x")
+
+[node name="HoverMarker" parent="." instance=ExtResource("3_uj7xl")]
