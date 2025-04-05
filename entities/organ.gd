@@ -6,4 +6,5 @@ class_name Organ
 func evaluate() -> void:
 	var has_blood = system.gc(coords) == BloodSystem.Tile.BLOOD
 	if has_blood:
-		Game.game.score += score_value
+		var screen_pos = get_canvas_transform() * global_position
+		Game.game.ui.add_score_mover(screen_pos, score_value)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ywkoygcb1l13"]
+[gd_scene load_steps=10 format=3 uid="uid://ywkoygcb1l13"]
 
 [ext_resource type="Script" uid="uid://b6eale7p0ordg" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bif80y6577k0w" path="res://blood_system.tscn" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://bloqihwepbc6g" path="res://ui.gd" id="3_7jktm"]
 [ext_resource type="LabelSettings" uid="uid://cgwiur3s3qixd" path="res://default_label.tres" id="3_feb5d"]
 [ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="4_fc0e3"]
 
@@ -38,12 +39,14 @@ zoom = Vector2(4, 4)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_7jktm")
 
 [node name="RemoveLabel" type="Label" parent="CanvasLayer/UI"]
 unique_name_in_owner = true

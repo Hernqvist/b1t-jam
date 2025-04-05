@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://damtqnkrk1qxv"]
+
+[ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_13k8k"]
+[ext_resource type="Script" uid="uid://x7d4abeb8jkb" path="res://score_mover.gd" id="2_la78d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_djxtl"]
+font = ExtResource("1_13k8k")
+
+[sub_resource type="LabelSettings" id="LabelSettings_la78d"]
+font = ExtResource("1_13k8k")
+
+[node name="ScoreMover" type="Label"]
+z_index = 200
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdb"
+label_settings = SubResource("LabelSettings_djxtl")
+script = ExtResource("2_la78d")
+
+[node name="Shadow" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 24.0
+text = "asdb"
+label_settings = SubResource("LabelSettings_la78d")

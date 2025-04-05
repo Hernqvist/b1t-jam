@@ -5,6 +5,7 @@ class_name Game
 @onready var next_button : Button = %NextButton
 @onready var system : BloodSystem = $BloodSystem
 @onready var camera : Camera2D = $Camera2D
+@onready var ui : GameUI = %UI
 
 static var game : Game
 
@@ -45,7 +46,7 @@ func on_transition() -> void:
 			system.actions_left = 3
 
 func _process(_delta: float) -> void:
-	score_label.text = "Health score: %d" % score
+	score_label.text = "Score: %d" % score
 	next_button.disabled = state not in [State.PLAYING, State.INITIAL]
 	%RemoveLabel.text = "Remove %d more obstacles" % system.actions_left \
 		if state == State.PLAYING else ""
