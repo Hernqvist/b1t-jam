@@ -6,6 +6,7 @@ class_name Game
 @onready var system : BloodSystem = $BloodSystem
 @onready var camera : Camera2D = $Camera2D
 @onready var ui : GameUI = %UI
+@onready var virus_spawn_sound : AudioStreamPlayer = $VirusSpawnSound
 
 static var game : Game
 
@@ -40,6 +41,7 @@ func on_transition() -> void:
 			var tween := create_tween()
 			system.add_viruses(4)
 			tween.tween_callback(set_state.bind(State.PLAYING))
+			virus_spawn_sound.play()
 		State.PLAYING:
 			system.modulate = Color("white")
 			system.clear_blood()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ywkoygcb1l13"]
+[gd_scene load_steps=11 format=3 uid="uid://ywkoygcb1l13"]
 
 [ext_resource type="Script" uid="uid://b6eale7p0ordg" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bif80y6577k0w" path="res://blood_system.tscn" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://bloqihwepbc6g" path="res://ui.gd" id="3_7jktm"]
+[ext_resource type="Script" path="res://ui.gd" id="3_7jktm"]
 [ext_resource type="LabelSettings" uid="uid://cgwiur3s3qixd" path="res://default_label.tres" id="3_feb5d"]
 [ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="4_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://bg60bkrnsxg4p" path="res://audio/virus_incoming.wav" id="6_ryrav"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
 bg_color = Color(0, 0, 0, 1)
@@ -87,3 +88,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ryrav")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eow3j")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j5wjh")
 text = "Next Heartbeat"
+
+[node name="VirusSpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ryrav")
+volume_db = -10.0
