@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lwx8rdk2j3ns"]
+
+[ext_resource type="Script" uid="uid://cuf5h0pyqcspf" path="res://entities/organ.gd" id="1_jq7fp"]
+[ext_resource type="Texture2D" uid="uid://b6j8k0ft47v8b" path="res://textures/kidneys.png" id="2_jq7fp"]
+
+[node name="Kidneys" type="Node2D"]
+script = ExtResource("1_jq7fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jq7fp")
+centered = false

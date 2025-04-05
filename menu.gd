@@ -28,8 +28,14 @@ func start_game() -> void:
 	var game := GAME_SCENE.instantiate()
 	game.complete.connect(on_game_done.bind(game))
 	add_child(game)
-	
+
+var started := false
 
 func _ready() -> void:
 	menu = self
-	start_game()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("click") and not started:
+		$CanvasLayer.queue_free()
+		start_game()
+		started = true

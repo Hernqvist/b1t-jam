@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds46gom215ij2"]
+
+[ext_resource type="Script" uid="uid://cuf5h0pyqcspf" path="res://entities/organ.gd" id="1_q8dp5"]
+[ext_resource type="Texture2D" uid="uid://bqrao2sbxprms" path="res://textures/liver.png" id="2_u1fof"]
+
+[node name="Liver" type="Node2D"]
+script = ExtResource("1_q8dp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u1fof")
+centered = false
+flip_h = true
+flip_v = true

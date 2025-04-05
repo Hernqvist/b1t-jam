@@ -11,7 +11,7 @@ class_name Game
 signal complete(int)
 
 static var game : Game
-const MAX_LEVELS = 1
+const MAX_LEVELS = 5
 
 var score : int = 0
 var current_level = 0
@@ -45,9 +45,10 @@ func on_transition() -> void:
 			current_level += 1
 			if current_level > MAX_LEVELS:
 				complete.emit(score)
+				return
 			system.clear_blood()
 			var tween := create_tween()
-			system.add_viruses(4)
+			system.add_viruses(6)
 			tween.tween_interval(1.2)
 			tween.tween_callback(set_state.bind(State.PLAYING))
 			virus_spawn_sound.play()
