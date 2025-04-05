@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://ywkoygcb1l13"]
+[gd_scene load_steps=9 format=3 uid="uid://ywkoygcb1l13"]
 
 [ext_resource type="Script" uid="uid://b6eale7p0ordg" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bif80y6577k0w" path="res://blood_system.tscn" id="2_e2o6t"]
+[ext_resource type="LabelSettings" uid="uid://cgwiur3s3qixd" path="res://default_label.tres" id="3_feb5d"]
+[ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="4_fc0e3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
@@ -21,18 +45,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="RemoveLabel" type="Label" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 100.0
+grow_vertical = 0
+text = "Remove"
+label_settings = ExtResource("3_feb5d")
+vertical_alignment = 2
+
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/UI"]
 unique_name_in_owner = true
 layout_mode = 1
 offset_right = 100.0
 offset_bottom = 23.0
 text = "Score:"
+label_settings = ExtResource("3_feb5d")
 
 [node name="NextButton" type="Button" parent="CanvasLayer/UI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 265.0
+offset_left = 227.0
 offset_top = 437.0
-offset_right = 408.0
+offset_right = 517.0
 offset_bottom = 473.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_fc0e3")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7jktm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ryrav")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eow3j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j5wjh")
 text = "Next Heartbeat"

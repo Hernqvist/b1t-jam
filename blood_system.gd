@@ -7,13 +7,13 @@ enum Tile {NULL, EMPTY, WALL, BLOOD, VIRUS, HEART, LUNGS}
 
 const SOURCE := 2
 
-const WIDTH := 12
-const HEIGHT := 15
+var WIDTH := 12
+var HEIGHT := 15
 const TILE_SCALE := 8
 
 var actions_left : int = 1
 
-static var TILES_ON_MAP :Array[Vector2i] = []
+var TILES_ON_MAP :Array[Vector2i] = []
 const DIRECTIONS : Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
 @onready var marker : HoverMarker = $HoverMarker
 @onready var entities : Node2D = $Entities
@@ -21,11 +21,6 @@ const DIRECTIONS : Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT,
 
 var protected : Dictionary[Vector2i, Object] = {}
 
-
-static func _static_init() -> void:
-	for x in range(WIDTH):
-		for y in range(HEIGHT):
-			TILES_ON_MAP.append(Vector2i(x, y))
 
 func sc(coords : Vector2i, type : Tile) -> void:
 	set_cell(coords, SOURCE, Vector2i.ZERO, type)
@@ -86,6 +81,11 @@ func add_viruses(count : int) -> void:
 		sc(pos, Tile.VIRUS)
 
 func _ready() -> void:
+	WIDTH = get_used_rect().size.x
+	HEIGHT = get_used_rect().size.y
+	for x in range(WIDTH):
+		for y in range(HEIGHT):
+			TILES_ON_MAP.append(Vector2i(x, y))
 	for coords : Vector2i in TILES_ON_MAP:
 		if get_cell_source_id(coords) == -1:
 			sc(coords, Tile.EMPTY)

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cgwiur3s3qixd"]
+
+[ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_462qx"]
+
+[resource]
+font = ExtResource("1_462qx")
+font_size = 8

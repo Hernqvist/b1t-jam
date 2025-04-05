@@ -45,6 +45,9 @@ func on_transition() -> void:
 func _process(_delta: float) -> void:
 	score_label.text = "Health score: %d" % score
 	next_button.disabled = state not in [State.PLAYING, State.INITIAL]
+	%RemoveLabel.text = "Remove %d more obstacles" % system.actions_left \
+		if state == State.PLAYING else ""
+		
 
 func _ready() -> void:
 	game = self

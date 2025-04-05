@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="B1t-jam"
-run/main_scene="uid://ywkoygcb1l13"
+run/main_scene="uid://cdb4h7vvasq1s"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/stretch/mode="viewport"
 
 [input]
 
