@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl3241jjwk0hh"]
+
+[ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_hgi8f"]
+[ext_resource type="Script" uid="uid://dkhfj0savscqp" path="res://win.gd" id="1_tmki8"]
+[ext_resource type="LabelSettings" uid="uid://cgwiur3s3qixd" path="res://default_label.tres" id="2_tmki8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yblwc"]
+font = ExtResource("1_hgi8f")
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4bre"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x0fk"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e1nn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxvcs"]
+
+[node name="Win" type="CanvasLayer"]
+script = ExtResource("1_tmki8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Congrats" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 130.0
+offset_right = 600.0
+offset_bottom = 162.0
+text = "Immunity reached!"
+label_settings = SubResource("LabelSettings_yblwc")
+
+[node name="NewScore" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 122.0
+offset_top = 275.0
+offset_right = 551.0
+offset_bottom = 298.0
+text = "Score"
+label_settings = ExtResource("2_tmki8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 122.0
+offset_top = 306.0
+offset_right = 551.0
+offset_bottom = 329.0
+text = "Highscore
+"
+label_settings = ExtResource("2_tmki8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 393.0
+offset_right = 429.0
+offset_bottom = 424.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_hgi8f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u4bre")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4x0fk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8e1nn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uxvcs")
+text = "Play Again"

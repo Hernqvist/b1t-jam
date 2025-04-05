@@ -8,9 +8,13 @@ class_name Game
 @onready var ui : GameUI = %UI
 @onready var virus_spawn_sound : AudioStreamPlayer = $VirusSpawnSound
 
+signal complete(int)
+
 static var game : Game
+const MAX_LEVELS = 1
 
 var score : int = 0
+var current_level = 0
 
 enum State {INITIAL, BLOOD_FLOWING, SCORE_ADDING, VIRUSES_APPEARING, PLAYING}
 var state : State = State.INITIAL:
@@ -26,7 +30,7 @@ func on_transition() -> void:
 	print(state)
 	match state:
 		State.BLOOD_FLOWING:
-			system.modulate = Color("red")
+			Menu.menu.modulate = Color("red")
 			system.begin_adding_blood(system.heart.coords)
 			var tween := create_tween()
 			tween.tween_interval(1)
@@ -37,17 +41,24 @@ func on_transition() -> void:
 			tween.tween_interval(2)
 			tween.tween_callback(set_state.bind(State.VIRUSES_APPEARING))
 		State.VIRUSES_APPEARING:
+			Menu.menu.modulate = Color.GREEN
+			current_level += 1
+			if current_level > MAX_LEVELS:
+				complete.emit(score)
 			system.clear_blood()
 			var tween := create_tween()
 			system.add_viruses(4)
+			tween.tween_interval(1.2)
 			tween.tween_callback(set_state.bind(State.PLAYING))
 			virus_spawn_sound.play()
 		State.PLAYING:
-			system.modulate = Color("white")
+			Menu.menu.modulate = Color("white")
 			system.clear_blood()
 			system.actions_left = 3
 
 func _process(_delta: float) -> void:
+	%LevelLabel.text = "Level %d of %d" % [current_level, MAX_LEVELS] \
+		if current_level > 0 else ""
 	score_label.text = "Score: %d" % score
 	next_button.disabled = state not in [State.PLAYING, State.INITIAL]
 	%RemoveLabel.text = "Remove %d more obstacles" % system.actions_left \

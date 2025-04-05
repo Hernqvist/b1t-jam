@@ -93,6 +93,16 @@ text = "Next Heartbeat"
 [node name="RewardSound" type="AudioStreamPlayer" parent="CanvasLayer/UI"]
 stream = ExtResource("6_eow3j")
 
+[node name="LevelLabel" type="Label" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+label_settings = ExtResource("3_feb5d")
+horizontal_alignment = 1
+
 [node name="VirusSpawnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ryrav")
 volume_db = -10.0

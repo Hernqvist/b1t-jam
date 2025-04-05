@@ -3,5 +3,6 @@
 [ext_resource type="FontFile" uid="uid://c0kl3rynasq08" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_462qx"]
 
 [resource]
+paragraph_spacing = 1.0
 font = ExtResource("1_462qx")
 font_size = 8

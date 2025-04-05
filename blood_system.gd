@@ -11,7 +11,7 @@ var WIDTH := 12
 var HEIGHT := 15
 const TILE_SCALE := 8
 
-var actions_left : int = 1
+var actions_left : int = 0
 
 var TILES_ON_MAP :Array[Vector2i] = []
 const DIRECTIONS : Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
@@ -27,7 +27,7 @@ func sc(coords : Vector2i, type : Tile) -> void:
 	set_cell(coords, SOURCE, Vector2i.ZERO, type)
 
 func gc(coords : Vector2i) -> Tile:
-	return get_cell_alternative_tile(coords)
+	return get_cell_alternative_tile(coords) as Tile
 
 static func is_removable(tile : Tile) -> bool:
 	return tile == Tile.WALL or tile == Tile.VIRUS

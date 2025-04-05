@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cui33iic7ke2v" path="res://hover_marker.tscn" id="3_uj7xl"]
 [ext_resource type="PackedScene" uid="uid://35ewei4woyrf" path="res://tilescenes/virus.tscn" id="4_rbjie"]
 [ext_resource type="PackedScene" uid="uid://bkqoqo1oadxgg" path="res://entities/heart.tscn" id="7_dlqe8"]
-[ext_resource type="PackedScene" path="res://entities/lungs.tscn" id="8_25jlq"]
+[ext_resource type="PackedScene" uid="uid://qvomw0vieo1b" path="res://entities/lungs.tscn" id="8_25jlq"]
 [ext_resource type="AudioStream" uid="uid://dbsvseglp8g4w" path="res://audio/destroy.wav" id="9_ichj8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dlqe8"]

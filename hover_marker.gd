@@ -6,7 +6,7 @@ var light : bool = false
 var active : bool = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	cross.visible = active
 
 

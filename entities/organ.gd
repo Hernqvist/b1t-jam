@@ -3,6 +3,9 @@ class_name Organ
 
 @export var score_value : int = 1
 
+func _ready() -> void:
+	z_index = 10
+
 func evaluate() -> void:
 	var has_blood = system.gc(coords) == BloodSystem.Tile.BLOOD
 	if has_blood:

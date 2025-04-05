@@ -5,6 +5,9 @@ class_name GameUI
 
 const mover_scene := preload("res://score_mover.tscn")
 
+func _process(_delta: float) -> void:
+	modulate = Menu.menu.modulate
+
 func add_game_score(score : int) -> void:
 	Game.game.score += score
 
