@@ -1,6 +1,8 @@
 extends Control
 class_name GameUI
 
+@onready var reward_sound : AudioStreamPlayer = $RewardSound
+
 const mover_scene := preload("res://score_mover.tscn")
 
 func add_game_score(score : int) -> void:
@@ -16,4 +18,8 @@ func add_score_mover(from : Vector2, score : int) -> void:
 	tween.tween_property(mover, "position", $ScoreLabel.position, 1.5)
 	tween.tween_callback(add_game_score.bind(score))
 	tween.tween_callback(mover.queue_free)
+	
+	if !reward_sound.is_playing():
+		reward_sound.play()
+	
 	
