@@ -48,7 +48,7 @@ func on_transition() -> void:
 				return
 			system.clear_blood()
 			var tween := create_tween()
-			system.add_viruses(7)
+			system.add_viruses(8)
 			tween.tween_interval(1.2)
 			tween.tween_callback(set_state.bind(State.PLAYING))
 			virus_spawn_sound.play()
