@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cui33iic7ke2v"]
+[gd_scene load_steps=4 format=3 uid="uid://cui33iic7ke2v"]
 
 [ext_resource type="Script" uid="uid://d3o2fc6kvfkgt" path="res://hover_marker.gd" id="1_ctaka"]
+[ext_resource type="Texture2D" uid="uid://pg3a1aytyi5p" path="res://textures/cross.png" id="2_d62l3"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d62l3"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_brw6k"]
 
 [node name="HoverMarker" type="Node2D"]
 script = ExtResource("1_ctaka")
 
-[node name="Cross" type="Line2D" parent="."]
+[node name="Cross" type="Sprite2D" parent="."]
 z_index = 100
-material = SubResource("CanvasItemMaterial_d62l3")
-scale = Vector2(4, 4)
-points = PackedVector2Array(-1, -1, 1, 1, 0, 0, 1, -1, -1, 1)
-width = 0.5
+material = SubResource("CanvasItemMaterial_brw6k")
+texture = ExtResource("2_d62l3")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
