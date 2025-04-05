@@ -7,8 +7,8 @@ enum Tile {NULL, EMPTY, WALL, BLOOD, VIRUS, HEART, LUNGS}
 
 const SOURCE := 2
 
-const WIDTH := 10
-const HEIGHT := 10
+const WIDTH := 12
+const HEIGHT := 15
 const TILE_SCALE := 8
 
 var actions_left : int = 1
@@ -52,11 +52,8 @@ func expand_blood() -> bool:
 				add_blood.append(coords)
 	if add_blood.size() == 0:
 		return false
-	add_blood.shuffle()
 	for new_blood : Vector2i in add_blood:
 		sc(new_blood, Tile.BLOOD)
-		if randi() % 2 == 0:
-			break
 	return true
 
 func begin_adding_blood(from : Vector2i) -> void:
@@ -72,12 +69,16 @@ func to_position(tile : Vector2i) -> Vector2:
 func mouse_tile() -> Vector2i:
 	return to_tile(get_global_mouse_position())
 
+func evaluate() -> void:
+	for entity : BoardEntity in entities.get_children():
+		entity.evaluate()
+
 func add_viruses(count : int) -> void:
 	for i in range(count):
 		TILES_ON_MAP.shuffle()
 		var pos = Vector2i(-1, -1)
 		for coords in TILES_ON_MAP:
-			if gc(coords) == Tile.EMPTY:
+			if gc(coords) == Tile.EMPTY and not coords in protected:
 				pos = coords
 				break
 		if pos == Vector2i(-1, -1):
@@ -99,7 +100,8 @@ func _process(_delta: float) -> void:
 		marker.global_position = to_position(mouse_tile())
 		if is_removable(gc(mouse_tile())):
 			marker.active = true
-
-		
-	if Input.is_action_just_pressed("click"):
-		begin_adding_blood(mouse_tile())
+			
+		if Input.is_action_just_pressed("click"):
+			if actions_left > 0 and is_removable(gc(mouse_tile())):
+				actions_left -= 1
+				sc(mouse_tile(), Tile.EMPTY)

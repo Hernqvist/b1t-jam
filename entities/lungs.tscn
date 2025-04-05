@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://qvomw0vieo1b"]
+
+[ext_resource type="Script" uid="uid://cuf5h0pyqcspf" path="res://entities/organ.gd" id="1_eyf4b"]
+[ext_resource type="Texture2D" uid="uid://7ifuasf3l55f" path="res://textures/lungs.png" id="1_s6vim"]
+
+[node name="Lungs" type="Node2D"]
+script = ExtResource("1_eyf4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s6vim")
+centered = false
