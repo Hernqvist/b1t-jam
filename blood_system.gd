@@ -33,6 +33,7 @@ static func is_removable(tile : Tile) -> bool:
 	return tile == Tile.WALL or tile == Tile.VIRUS
 
 func clear_blood() -> void:
+	heart.stop_beating()
 	for coords : Vector2i in TILES_ON_MAP:
 		if gc(coords) == Tile.BLOOD:
 			sc(coords, Tile.EMPTY)
@@ -55,6 +56,7 @@ func expand_blood() -> bool:
 func begin_adding_blood(from : Vector2i) -> void:
 	clear_blood()
 	sc(from, Tile.BLOOD)
+	heart.start_beating()
 
 func to_tile(global : Vector2) -> Vector2i:
 	return Vector2i((global - global_position) / TILE_SCALE)
@@ -82,6 +84,7 @@ func add_viruses(count : int) -> void:
 		sc(pos, Tile.VIRUS)
 
 func _ready() -> void:
+	heart.stop_beating()
 	WIDTH = get_used_rect().size.x
 	HEIGHT = get_used_rect().size.y
 	for x in range(WIDTH):
