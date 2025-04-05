@@ -11,7 +11,7 @@ class_name Game
 signal complete(int)
 
 static var game : Game
-const MAX_LEVELS = 5
+const MAX_LEVELS = 10
 
 var score : int = 0
 var current_level = 0

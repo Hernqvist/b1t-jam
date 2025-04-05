@@ -35,6 +35,8 @@ func _ready() -> void:
 	menu = self
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		get_tree().quit()
 	if Input.is_action_just_pressed("click") and not started:
 		$CanvasLayer.queue_free()
 		start_game()

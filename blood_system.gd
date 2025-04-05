@@ -39,6 +39,8 @@ func clear_blood() -> void:
 		if gc(coords) == Tile.BLOOD:
 			sc(coords, Tile.EMPTY)
 
+var blood_counter : int = 0
+
 func expand_blood() -> bool:
 	var add_blood : Array[Vector2i] = []
 	for coords : Vector2i in TILES_ON_MAP:
@@ -50,8 +52,10 @@ func expand_blood() -> bool:
 				add_blood.append(coords)
 	if add_blood.size() == 0:
 		return false
-	for new_blood : Vector2i in add_blood:
-		sc(new_blood, Tile.BLOOD)
+	blood_counter += 1
+	if blood_counter % 2 == 0:
+		for new_blood : Vector2i in add_blood:
+			sc(new_blood, Tile.BLOOD)
 	return true
 
 func begin_adding_blood(from : Vector2i) -> void:
