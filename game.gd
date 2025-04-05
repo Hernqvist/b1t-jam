@@ -24,6 +24,7 @@ func on_transition() -> void:
 	print(state)
 	match state:
 		State.BLOOD_FLOWING:
+			system.modulate = Color("red")
 			system.begin_adding_blood(system.heart.coords)
 			var tween := create_tween()
 			tween.tween_interval(1)
@@ -39,6 +40,7 @@ func on_transition() -> void:
 			system.add_viruses(4)
 			tween.tween_callback(set_state.bind(State.PLAYING))
 		State.PLAYING:
+			system.modulate = Color("white")
 			system.clear_blood()
 			system.actions_left = 3
 
